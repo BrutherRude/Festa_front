@@ -1,21 +1,21 @@
 class AlimentoController {
   static BASE_URL = "https://festa-api-22.herokuapp.com";
 
-  static async listarProdutos() {
-    const produtos = await fetch(`${this.BASE_URL}/alimento`)
+  static async listarAlimentos() {
+    const alimentos = await fetch(`${this.BASE_URL}/alimento`)
       .then((res) => res.json())
       .then((res) => res)
       .catch((err) => window.alert(err));
 
-    return produtos;
+    return alimentos;
   }
 
-  static async listarUnicoProduto(productId) {
-    const produtoUnico = await fetch(`${this.BASE_URL}/alimento/${productId}`)
+  static async listarUnicoAlimento(alimentoId) {
+    const alimentoUnico = await fetch(`${this.BASE_URL}/alimento/${alimentoId}`)
       .then((res) => res.json())
       .then((res) => res)
       .catch((err) => window.alert(err));
-    return produtoUnico;
+    return alimentoUnico;
   }
 }
 

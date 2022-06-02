@@ -10,7 +10,7 @@ class AtracaoController {
     return atracoes;
   }
 
-  static async listarUnicoProduto(atracaoId) {
+  static async listarUnicaAtracao(atracaoId) {
     const atracaoUnica = await fetch(`${this.BASE_URL}/atracao/${atracaoId}`)
       .then((res) => res.json())
       .then((res) => res)

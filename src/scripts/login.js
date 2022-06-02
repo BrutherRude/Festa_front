@@ -13,6 +13,6 @@ async function coletaDados(event) {
   const statusLogin = await UserController.logarUsuario(novoLogin);
   console.log(statusLogin);
   if (statusLogin.token) {
-    // location.href = "./cadastro.html";
+    location.href = "/src/Delicious/index.html";
   }
 }

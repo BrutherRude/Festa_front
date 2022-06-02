@@ -13,6 +13,6 @@ async function coletaDados(event) {
   const statusCadastro = await UserController.cadastrarUsuario(novoUsuario);
 
   if (statusCadastro.enabled) {
-    location.href = "./login.html";
+    location.href = "../../login.html";
   }
 }

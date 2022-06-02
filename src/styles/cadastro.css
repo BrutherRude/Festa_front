@@ -51,7 +51,7 @@ body {
   font-weight: 700;
   font-size: 30px;
   line-height: 25px;
-  color: purple;
+  color: #ffb03b;
 }
 
 .subtitulo {
@@ -94,7 +94,7 @@ form {
 
 form > button {
   font-family: "Inter", sans-serif;
-  background-color: purple;
+  background-color: #ffb03b;
   color: white;
   border: none;
   border-radius: 10px;
@@ -128,7 +128,7 @@ form > button {
 }
 
 .input:hover {
-  border: 2px solid purple;
+  border: 2px solid #ffb03b;
 }
 
 @media (max-width: 350px) {
