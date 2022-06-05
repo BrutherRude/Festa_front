@@ -2,7 +2,7 @@ class UserController {
   static BASE_URL = "https://festa-api-22.herokuapp.com";
 
   static async cadastrarUsuario(data) {
-    const url = `${this.BASE_URL}/usuario`;
+    const url = `http://localhost:6789/usuario/insert`;
     const novoUsuario = await fetch(url, {
       method: "POST",
       headers: {
