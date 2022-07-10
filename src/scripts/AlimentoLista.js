@@ -1,4 +1,5 @@
-const urlGetAlimento ="http://localhost:6789/alimento/list";
+const urlGetAlimento ="https://expresso-fiesta.herokuapp.com/alimento/list";
+
 let array = [];
 
 function data() {

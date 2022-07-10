@@ -1,4 +1,4 @@
-const urlGetAtracao ="http://localhost:6789/atracao/list";
+const urlGetAtracao ="https://expresso-fiesta.herokuapp.com/atracao/list";
 let array = [];
 
 function data() {
