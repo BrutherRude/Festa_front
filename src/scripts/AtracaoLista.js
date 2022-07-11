@@ -9,7 +9,9 @@ function data() {
 armazenaDados();
 async function armazenaDados() {
     array = await data();
-    console.log(array[1]);
+    localStorage.setItem("item1",JSON.stringify(array[0]));//Armazena a string item selecicionado;
+    let atracaofinal = JSON.parse(localStorage.getItem('item1'));//Converto a string em um objeto
+    console.log(atracaofinal.nome);
   for (let i = 0; i < array.length; i++) {
     document.getElementById("tabelas").innerHTML += `
     <div class="col-12 col-md-6 col-lg-4">
@@ -23,7 +25,7 @@ async function armazenaDados() {
                     <p class="btn btn-danger btn-block">${array[i].valor} R$</ $</p>
                 </div>
                 <div class="col">
-                    <a href="#" class="btn btn-success btn-block">Adicionar ao pedido</a>
+                    <a href="#" onclick="test(array,i)"  class="btn btn-success btn-block">Adicionar ao pedido</a>
                 </div>
             </div>
         </div>
@@ -32,6 +34,11 @@ async function armazenaDados() {
     
   }  
 }
+function test(array,i) {
+    alert(array[i]);
+    console.log(array[i]);
+}
+
 
 
 

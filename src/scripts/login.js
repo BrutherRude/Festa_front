@@ -17,7 +17,7 @@
 //   }
 // }
 
-const urlInsertUser ="http://localhost:6789/usuario/login";
+const urlInsertUser ="https://expresso-fiesta.herokuapp.com/usuario/login";
 const formCadastrar = document.getElementById("form_login_usuario");
 formCadastrar.addEventListener("submit", validar);
 async function validar(event) {
@@ -34,6 +34,7 @@ function fazPost(url,body) {
     request.onload = function(event){
       let usuario = new Usuario(JSON.parse(request.response));
       console.log(usuario);
+      localStorage.setItem(usuario);
       if (usuario.id != 0) {
         window.location = "/src/Delicious/index.html";
       } else {
