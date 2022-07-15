@@ -12,7 +12,7 @@ async function armazenaDados() {
     array = await data();
     console.log(array[1]);
   for (let i = 0; i < array.length; i++) {
-    document.getElementById("tabelas").innerHTML += `
+    document.getElementById("tabelas").innerHTML +=`
     <div class="col-12 col-md-6 col-lg-4">
     <div class="card">
         <img class="card-img-top" src="${array[i].urlImg}" alt="Card image cap">
@@ -21,7 +21,7 @@ async function armazenaDados() {
             <p class="card-text"></p>
             <div class="row">
                 <div class="col">
-                    <p class="btn btn-danger btn-block">${array[i].valor} R$</ $</p>
+                <a href="#"<p class="btn btn-danger btn-block">${array[i].valor} R$</$</p></a>
                 </div>
                 <div class="col">
                     <a href="#" class="btn btn-success btn-block">Adicionar ao pedido</a>
@@ -30,11 +30,5 @@ async function armazenaDados() {
         </div>
     </div>
 </div>`
-    
   }  
 }
-
-
-
-
-

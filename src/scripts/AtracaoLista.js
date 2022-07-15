@@ -1,6 +1,5 @@
 const urlGetAtracao ="https://expresso-fiesta.herokuapp.com/atracao/list";
 let array = [];
-
 function data() {
     const resultado = fetch(urlGetAtracao).then(resposta => resposta.json()
     ).then(corpo => corpo)
@@ -11,9 +10,9 @@ async function armazenaDados() {
     array = await data();
     localStorage.setItem("item1",JSON.stringify(array[0]));//Armazena a string item selecicionado;
     let atracaofinal = JSON.parse(localStorage.getItem('item1'));//Converto a string em um objeto
-    console.log(atracaofinal.nome);
+    console.log(array[1]);
   for (let i = 0; i < array.length; i++) {
-    document.getElementById("tabelas").innerHTML += `
+    document.getElementById("tabelas").innerHTML +=`
     <div class="col-12 col-md-6 col-lg-4">
     <div class="card">
         <img class="card-img-top" src="${array[i].urlImg}" alt="Card image cap">
@@ -25,7 +24,7 @@ async function armazenaDados() {
                     <p class="btn btn-danger btn-block">${array[i].valor} R$</ $</p>
                 </div>
                 <div class="col">
-                    <a href="#" onclick="test(array,i)"  class="btn btn-success btn-block">Adicionar ao pedido</a>
+                    <a href="#" onclick="test(${i})"  class="btn btn-success btn-block">Adicionar ao pedido</a>
                 </div>
             </div>
         </div>
@@ -34,9 +33,9 @@ async function armazenaDados() {
     
   }  
 }
-function test(array,i) {
-    alert(array[i]);
-    console.log(array[i]);
+function test(i) {
+    localStorage.setItem("atracao"+i,JSON.stringify(array[i]));//Armazena a string item selecicionado;
+    // let atracaofinal = JSON.parse(localStorage.getItem('item1'));//Converto a string em um objeto
 }
 
 
