@@ -15,7 +15,6 @@
 //   }
 // }
 
-
 // const urlInsertUser ="http://localhost:6789/usuario/insert";
 // const formCadastrar = document.getElementById("form_cadastrar_usuario");
 // formCadastrar.addEventListener("submit", validar);
@@ -30,7 +29,7 @@
 //         "email":"",
 //         "login":"",
 //         "nome":"",
-//         "senha":""     
+//         "senha":""
 //     }
 //     jsonObject.email=email;
 //     jsonObject.login=login;
@@ -47,18 +46,18 @@
 //     request.send(body);
 // }
 
-const urlInsertUser ="http://localhost:6789/usuario/insert";
+const urlInsertUser = "http://localhost:6789/usuario/insert";
 const formCadastrar = document.getElementById("form_cadastrar_usuario");
 formCadastrar.addEventListener("submit", validar);
 async function validar(event) {
-    event.preventDefault();
-    const formDados = new FormData(event.target);
-    const novoUsuario = JSON.stringify(Object.fromEntries(formDados));      
-    fazPost(urlInsertUser,novoUsuario);
-    window.location = "/login.html";
+  event.preventDefault();
+  const formDados = new FormData(event.target);
+  const novoUsuario = JSON.stringify(Object.fromEntries(formDados));
+  fazPost(urlInsertUser, novoUsuario);
+  window.location = "/login.html";
 }
-function fazPost(url,body) {
-    let request = new XMLHttpRequest();
-    request.open("POST",url,true);
-    request.send(body);
+function fazPost(url, body) {
+  let request = new XMLHttpRequest();
+  request.open("POST", url, true);
+  request.send(body);
 }
