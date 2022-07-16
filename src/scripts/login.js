@@ -18,7 +18,7 @@ async function fazPost(data) {
       if (res.id == 0) throw new Error("Credenciais Inválidas");
       return res;
     })
-    .catch((err) => window.alert(err));
+    .catch((err) => window.alert(err.message));
 
   delete resultado.senha;
   localStorage.setItem("@CURRENT_USER", JSON.stringify(resultado));

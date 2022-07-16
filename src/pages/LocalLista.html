@@ -18,6 +18,7 @@
   crossorigin="anonymous"
 />
 <link rel="stylesheet" href="/src/styles/produtos.css" />
+<link rel="stylesheet" href="/src/styles/localLista.css" />
 <body>
   <nav>
     <div class="container">
@@ -44,24 +45,51 @@
     <div class="shopping-cart">
       <div class="shopping-cart-header">
         <i class="fa fa-shopping-cart cart-icon"></i
-        ><span class="badge">3</span>
+        ><span class="badge">1</span>
         <div class="shopping-cart-total">
           <span class="lighter-text">Total:</span>
-          <span class="main-color-text">$2,229.97</span>
+          <span class="main-color-text">$ 57.17</span>
         </div>
       </div>
       <!--end shopping-cart-header -->
-
+      <h4 class="subSectionName">Local</h4>
       <ul class="shopping-cart-items">
         <li class="clearfix">
+          <hr />
           <img
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg"
-            alt="item1"
+            class="productImage"
+            src="http://www.espacofestaseventos.com.br/wp-content/uploads/2020/02/54517763_2155592321191379_4319376926583029760_o.jpg"
           />
-          <span class="item-name">Sony DSC-RX100M III</span>
-          <span class="item-price">$849.99</span>
-          <span class="item-quantity">Quantity: 01</span>
+          <span class="item-name">Zboncak GroupI</span>
+          <span class="item-price">$57.17</span>
+          <hr />
         </li>
+      </ul>
+      <h4 class="subSectionName">Alimentos</h4>
+      <ul class="shopping-cart-items">
+        <!-- <li class="clearfix">
+          <hr />
+          <img
+            class="productImage"
+            src="http://www.espacofestaseventos.com.br/wp-content/uploads/2020/02/54517763_2155592321191379_4319376926583029760_o.jpg"
+          />
+          <span class="item-name">Zboncak GroupI</span>
+          <span class="item-price">$57.17</span>
+          <hr />
+        </li> -->
+      </ul>
+      <h4 class="subSectionName">Atrações</h4>
+      <ul class="shopping-cart-items">
+        <!-- <li class="clearfix">
+          <hr />
+          <img
+            class="productImage"
+            src="https://avatars.githubusercontent.com/u/79053378?v=4"
+          />
+          <span class="item-name">Zboncak GroupI</span>
+          <span class="item-price">$57.17</span>
+          <hr />
+        </li> -->
       </ul>
 
       <a href="#" class="button">Checkout</a>
@@ -75,29 +103,13 @@
       <!-- <p class="lead text-muted mb-0">Adicione os alimentos ao carrinho:</p> -->
     </div>
   </section>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item">
-              <a href="category.html">Category</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-              Sub-category
-            </li>
-          </ol>
-        </nav>
-      </div>
-    </div>
-  </div>
+
   <div class="container">
     <div class="row" id="tabelas">
       <!--aqui-->
     </div>
   </div>
-  <script src="../scripts/LocalLista.js"></script>
+  <script type="module" src="../scripts/LocalLista.js"></script>
 </body>
 
 <!-- Footer -->
@@ -144,18 +156,6 @@
           <li><i class="fa fa-phone mr-2"></i> + 33 12 14 15 16</li>
           <li><i class="fa fa-print mr-2"></i> + 33 12 14 15 16</li>
         </ul>
-      </div>
-      <div class="col-12 copyright mt-3">
-        <p class="float-left">
-          <a href="#">Back to top</a>
-        </p>
-        <p class="text-right text-muted">
-          created with <i class="fa fa-heart"></i> by
-          <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"
-            ><i>t-php</i></a
-          >
-          | <span>v. 1.0</span>
-        </p>
       </div>
     </div>
   </div>
