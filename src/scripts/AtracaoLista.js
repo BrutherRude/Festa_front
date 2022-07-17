@@ -1,45 +1,45 @@
-const urlGetAtracao ="https://expresso-fiesta.herokuapp.com/atracao/list";
-let array = [];
+import Model from "../models/LocalModel.js";
+
+const urlGetAtracao = "https://expresso-fiesta.herokuapp.com/atracao/list";
+
+const logout = document.getElementById("logout--");
+logout.addEventListener("click", () => {
+  localStorage.clear();
+  location.href = "../../login.html";
+});
+
+if (!localStorage.getItem("@CURRENT_USER")) {
+  localStorage.clear();
+  location.href = "../../login.html";
+}
+
 function data() {
-    const resultado = fetch(urlGetAtracao).then(resposta => resposta.json()
-    ).then(corpo => corpo)
-    return resultado;
-}
-armazenaDados();
-async function armazenaDados() {
-    array = await data();
-    localStorage.setItem("item1",JSON.stringify(array[0]));//Armazena a string item selecicionado;
-    let atracaofinal = JSON.parse(localStorage.getItem('item1'));//Converto a string em um objeto
-    console.log(array[1]);
-  for (let i = 0; i < array.length; i++) {
-    document.getElementById("tabelas").innerHTML +=`
-    <div class="col-12 col-md-6 col-lg-4">
-    <div class="card">
-        <img class="card-img-top" src="${array[i].urlImg}" alt="Card image cap">
-        <div class="card-body">
-            <h4 class="card-title"><a href="product.html" title="View Product">${array[i].nome}</</a></h4>
-            <p class="card-text"></p>
-            <div class="row">
-                <div class="col">
-                    <p class="btn btn-danger btn-block">${array[i].valor} R$</ $</p>
-                </div>
-                <div class="col">
-                    <a href="#" onclick="test(${i})"  class="btn btn-success btn-block">Adicionar ao pedido</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>`
-    
-  }  
-}
-function test(i) {
-    localStorage.setItem("atracao"+i,JSON.stringify(array[i]));//Armazena a string item selecicionado;
-    // let atracaofinal = JSON.parse(localStorage.getItem('item1'));//Converto a string em um objeto
+  const resultado = fetch(urlGetAtracao)
+    .then((res) => res.json())
+    .then((res) => {
+      res.map((el) => {
+        el.quantidade = 1;
+        el.secao = "Atracao";
+      });
+      return res;
+    });
+  return resultado;
 }
 
+async function createCards() {
+  const array = await data();
+  array.forEach((elem) => {
+    const tabelas = document.getElementById("tabelas");
+    tabelas.append(Model.CriaCard(elem));
+  });
+}
 
+createCards();
 
+const cartLocal = document.getElementById("cart-local");
+cartLocal.innerHTML = "";
 
-
-
+Model.arrayLocais.forEach((el) => {
+  cartLocal.append(Model.modelCarrinhoCard(el));
+});
+Model.atualizarQuantidadeTotal();

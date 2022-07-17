@@ -86,7 +86,7 @@ nav ul li a:hover {
   height: 70px;
 }
 .shopping-cart .shopping-cart-header {
-  border-bottom: 1px solid #e8e8e8;
+  /* border-bottom: 1px solid #e8e8e8; */
   padding-bottom: 15px;
 }
 .shopping-cart .shopping-cart-header .shopping-cart-total {
@@ -105,11 +105,12 @@ nav ul li a:hover {
 .shopping-cart .shopping-cart-items .item-name {
   display: block;
   padding-top: 10px;
-  font-size: 16px;
+  font-size: 14px;
 }
 .shopping-cart .shopping-cart-items .item-price {
   color: #6394f8;
   margin-right: 8px;
+  font-size: 16px;
 }
 .shopping-cart .shopping-cart-items .item-quantity {
   color: #abb0be;
@@ -155,4 +156,7 @@ nav ul li a:hover {
   content: "";
   display: table;
   clear: both;
+}
+#totalCartSoma {
+  font-size: 16px;
 }
