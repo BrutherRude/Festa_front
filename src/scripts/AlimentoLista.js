@@ -43,3 +43,40 @@ Model.arrayLocais.forEach((el) => {
   cartLocal.append(Model.modelCarrinhoCard(el));
 });
 Model.atualizarQuantidadeTotal();
+
+const finalizarPedido = document.getElementById("finalizar-pedido");
+finalizarPedido.addEventListener("click", (e) =>
+  montaPedido(e, Model.arrayLocais)
+);
+
+function montaPedido(event, data) {
+  event.preventDefault();
+
+  let total = data.reduce((a, b) => {
+    return a + b.quantidade * b.valor;
+  }, 0);
+  let quantidadeTotalProdutos = data.reduce((a, b) => {
+    return a + b.quantidade;
+  }, 0);
+  let userId = JSON.parse(localStorage.getItem("@CURRENT_USER")).id;
+  let arrLocal = data.filter((el) => el.secao == "Local");
+
+  let arrAtracao = data
+    .filter((el) => el.secao == "Atracao")
+    .map((el) => {
+      delete el.quantidade;
+      delete el.secao;
+      return el;
+    });
+
+  let arrAlimento = data
+    .filter((el) => el.secao == "Alimento")
+    .map((el) => {
+      delete el.secao;
+      return el;
+    });
+
+  let pedido = {};
+  // console.log(arrLocal, arrAtracao, arrAlimento);
+  // console.log(total,quantidadeTotalProdutos)
+}

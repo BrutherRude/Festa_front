@@ -49,16 +49,15 @@ export default class Model {
     return card;
   }
 
+  //
+  //
+  //
+
   static adicionaCardLocalCarrinho(elem) {
-    //
-    //logica para nao adicionar mais de uma atracao ou local
-    if (elem.secao != "Alimento") {
+    if (elem.secao == "Local") {
       if (this.arrayLocais.filter((el) => el.secao == elem.secao).length >= 1) {
-        window.alert(
-          `Não é possivel adicionar mais de ${
-            elem.secao == "Local" ? "um" : "uma"
-          } ${elem.secao}`
-        );
+        window.alert("Não é possivel adicionar mais de local");
+
         const cartLocal = document.getElementById("cart-local");
         cartLocal.innerHTML = "";
         this.arrayLocais.forEach((el) => {
@@ -70,11 +69,10 @@ export default class Model {
         return;
       }
     }
-    //
-    //
+
     if (this.arrayLocais.find((el) => el.nome == elem.nome)) {
       this.arrayLocais = this.arrayLocais.map((el) => {
-        if (el.nome == elem.nome) el.quantidade++;
+        if (el.nome == elem.nome && elem.secao == "Alimento") el.quantidade++;
         return el;
       });
     }
@@ -91,6 +89,10 @@ export default class Model {
     this.atualizarQuantidadeTotal();
     localStorage.setItem("@CURRENT_CART", JSON.stringify(this.arrayLocais));
   }
+
+  //
+  //
+
   static modelCarrinhoCard(elem) {
     const cardLocalCart = document.createElement("li");
     cardLocalCart.classList.add("clearfix");
