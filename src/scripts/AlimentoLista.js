@@ -49,7 +49,7 @@ finalizarPedido.addEventListener("click", (e) =>
   montaPedido(e, Model.arrayLocais)
 );
 
-function montaPedido(event, data) {
+async function montaPedido(event, data) {
   event.preventDefault();
 
   let total = data.reduce((a, b) => {
@@ -59,7 +59,7 @@ function montaPedido(event, data) {
     return a + b.quantidade;
   }, 0);
   let userId = JSON.parse(localStorage.getItem("@CURRENT_USER")).id;
-  let arrLocal = data.filter((el) => el.secao == "Local");
+  let localId = data.filter((el) => el.secao == "Local")[0].id;
 
   let arrAtracao = data
     .filter((el) => el.secao == "Atracao")
@@ -76,7 +76,26 @@ function montaPedido(event, data) {
       return el;
     });
 
-  let pedido = {};
-  // console.log(arrLocal, arrAtracao, arrAlimento);
-  // console.log(total,quantidadeTotalProdutos)
+  let atracaoFormat = "atracoes_id=";
+  let alimentoFormat = "alimentos_id=";
+  for (let i = 0; i < arrAtracao.length; i++) {
+    atracaoFormat += arrAtracao[i].id;
+    if (!(i + 1 == arrAtracao.length)) atracaoFormat += ",";
+  }
+
+  for (let i = 0; i < arrAlimento.length; i++) {
+    alimentoFormat += arrAlimento[i].id + "," + arrAlimento[i].quantidade;
+    if (!(i + 1 == arrAlimento.length)) alimentoFormat += ",";
+  }
+
+  let date = new Date();
+  let urlReq = `https://expresso-fiesta.herokuapp.com/pedido/insert?data_pedido=${date.getFullYear()}-${String(
+    date.getMonth() + 1
+  ).padStart(2, "0")}-${date.getDate()}&total=${total.toFixed(
+    1
+  )}&local_id=${localId}&usuario_id=${userId}&${atracaoFormat}&${alimentoFormat}`;
+
+  const resultado = await fetch(urlReq, { method: "POST" })
+    .then((res) => res.json())
+    .then((res) => console.log(res));
 }
